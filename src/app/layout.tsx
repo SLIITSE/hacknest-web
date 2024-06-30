@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const IBMPlexMono = IBM_Plex_Mono({
@@ -21,6 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={IBMPlexMono.className}>{children}</body>
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_GA_ID || "GA-XXXXXXXXX "}
+      />
     </html>
   );
 }
